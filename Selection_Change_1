@@ -1,0 +1,27 @@
+Sub Navigation()
+
+Dim Add As String
+Dim AddArray() As String
+Dim Row As String
+
+If Not Intersect(ActiveCell, Range("A25:A30")) Is Nothing Then
+
+    Add = ActiveCell.Address
+    AddArray = Split(Add, "$")
+    Row = "D" & AddArray(2)
+    
+    If Range(Row) <> "" Then
+        With Range("B28")
+            .value = True
+            .Interior.Color = vbGreen
+        End With
+    Else
+        With Range("B28")
+            .value = False
+            .Interior.Color = vbRed
+        End With
+    End If
+
+End If
+
+End Sub
